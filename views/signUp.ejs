@@ -8,6 +8,14 @@
 </head>
 <body>
 
+    <% if(obPourPassword?.error){ %>
+        
+        <script>
+            alert('<%= obPourPassword?.error %>');
+        </script>
+       
+    <% }%>
+
     <section id="nav-bar">
         <a href="#" class="title-first">Lo    Gi     S</a>
       <div class="bloc1-nav1">
@@ -63,14 +71,14 @@
                       <form method="POST" action="/logis/users/signUp" class="form">  
                          <label for="nom">Nom</label><br>&nbsp<input type="text" name="nom" placeholder="entrez votre nom"  class="nom">
                          <label for="prenom">Prenom</label><br>&nbsp<input type="text" name="prenom"  placeholder="entrez votre prenom" class="prenom" >
-                         <label for="email">Email <span class="star start1">*</span></label><br>&nbsp<input type="text" name="email" placeholder="entrez votre email" class="email"> 
+                         <label for="email">Email <span class="star start1">*</span></label><br>&nbsp<input type="text" name="email" placeholder="entrez votre email" class="email" value="<%= obPourEmail?.inputEmail%>"> 
                          <% if(obPourEmail?.value && obPourEmail?.indice=='email') { %>
                             <div class="notify">
                                  <%= obPourEmail?.value %>
                             </div>
                          <% } %> 
                          <br>
-                         <label for="motdepasse">Mot de passe</label>&nbsp<span class="star start2">*</span><br><input type="password" name="text"  placeholder="entrez votre mot de passe" class="password"><br>
+                         <label for="motdepasse">Mot de passe</label>&nbsp<span class="star start2">*</span><br><input type="password" name="text"  placeholder="entrez votre mot de passe" class="password" value="<%= obPourPassword?.inputPassword%>"><br>
                          <% if(obPourPassword?.value && obPourPassword?.indice=='password') { %>
                             <div class="notify">
                                  <%= obPourPassword?.value %>

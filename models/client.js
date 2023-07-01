@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Client.hasMany(models.Commande);
+      models.Client.hasMany(models.Commandes);
       
     }
   }

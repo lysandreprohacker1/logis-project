@@ -12,6 +12,9 @@ module.exports = {
       idClient: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references:{
+          model:'Clients'
+        }
       },
       libelle: {
         type: Sequelize.STRING,

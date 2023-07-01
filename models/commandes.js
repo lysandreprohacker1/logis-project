@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
           allowNull:false
         }
       });
-      models.Commandes.hasMany(models.Colis);
+      models.Commandes.hasMany(models.colis);
 
     }
   }

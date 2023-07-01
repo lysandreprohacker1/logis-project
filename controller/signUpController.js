@@ -4,6 +4,7 @@ const Email_Regex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 
 const password_Regex =/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/;
 
+const models= require('../models');
 
 
 
@@ -45,14 +46,16 @@ const signUp = (request,response)=>{
     }else if(password==null){
          obPourPassword ={
          value :'veuillez saisir un password',
-         indice:'password'
+         indice:'password',
+         inputPassword:password
         }
         console.log('test');
         response.render('signUp',{
             obPourPassword :obPourPassword,
             obPourEmail:{
                 value :'veuillez saisir un email',
-                indice:'email'
+                indice:'email',
+                inputEmail:email
                }
         })
         return {value : false}
@@ -64,32 +67,153 @@ const signUp = (request,response)=>{
         
         obPourEmail ={
             value :'veuillez entrer une email valide',
-            indice :'email'
+            indice :'email',
+            inputEmail:email
         }
         console.log(!Email_Regex.test(email)+'pour email')
+        testPassword=false;
+    }else{
+        obPourEmail ={
+            value :null,
+            indice :'email',
+            inputEmail:email
+        }
+
+        console.log('true pour email');
+
     }
 
     if(!password_Regex.test(password)){
         obPourPassword ={
             value :'le password contient 8-15 charactères,au moins une lettre minuscule\n,au moins une lettre majuscule,et au moins un des caractere $ @ % * + - _ !',
-            indice:'password'
+            indice:'password',
+            inputPassword:password
            }
 
            testPassword = false;
            
            console.log(password_Regex.test(password)+'pour password');
+    }else{
+        obPourPassword ={
+            value :null,
+            indice:'password',
+            inputPassword:password
+           }
+
+           
+           
+           console.log(password_Regex.test(password)+'pour password');
+    }
+
+    if(!testEmail || !testPassword){
+        response.render('signUp',{
+            obPourEmail,obPourPassword
+        })
+
+        return false
     }
 
 
     
-    
+
+
    
-    
+
+    models.Client.findOne({
+        attributes:['email'],
+        where:{
+            email:email
+        }
+    })
+    .then((userData)=>{
+
+            if(!userData){
+
+                bcrypt.hash(password,10,(err,encryptedPassword)=>{
+                    let newClient = models.Client.create({
+                        nom:name,
+                        prenom:firstName,
+                        email:email,
+                        password:encryptedPassword
+                    })
+                    .then((newClient)=>{
+                            console.log('success id : '+newClient.id);
+
+                        
+                            response.render('signIn' ,{
+                                obPourEmail : {
+                                    value :false,
+                                    indice :'email',
+                                    inputEmail :email,
+                                    error:false
+                                },
+                                obPourPassword :{
+                                    value :false,
+                                    indice:'password',
+                                    inputPassword:password,
+                                    error:false
+                                   }
+                            })
+                            return false
+                    })
+                    .catch(()=>{
+                        response.status(500).render('signUp',{
+                            obPourPassword :{
+                                value :'password valide',
+                                indice:'password',
+                                inputPassword:password,
+                                error:'Echec d\'inscription'
+                               },
+                            obPourEmail: {
+                                value :'email valide',
+                                indice :'email',
+                                inputEmail:email,
+                                
+                            } 
+                        })
+
+                        return false;
+                    })
+                })
+                
+            }else{
+                response.status(409).render('signUp',{
+                    obPourPassword :{
+                        value :'password valide',
+                        indice:'password',
+                        inputPassword:password,
+                        error:'attention :) cet utilisateur est deja inscrit'
+                       },
+                    obPourEmail: {
+                        value :'email valide',
+                        indice :'email',
+                        inputEmail:email,
+                        
+                    } 
+                })
+            }
+
+    })
+    .catch(()=>{
+        console.log('impossi')
+        return response.status(500).render('signUp',{
+            obPourPassword :{
+                value :'password valide',
+                indice:'password',
+                inputPassword:password,
+                error:'connexion a la base de données impossible'
+               },
+            obPourEmail: {
+                value :'email valide',
+                indice :'email',
+                inputEmail:email,
+                
+            } 
+        })
+    })    
 
 }
 
-const signIn =()=>{
-
-}
 
 exports.signUp=signUp
+

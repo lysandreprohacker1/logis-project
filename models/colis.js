@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       })
 
       models.colis.belongsTo(models.Destinataire);
-      models.colis.has(models.Addresse);
+      models.colis.hasOne(models.Addresse);
       
     }
   }

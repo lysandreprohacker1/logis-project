@@ -6,6 +6,7 @@ const path = require('path');
 
 const rootDir = require('../utils/path');
 const singUpController = require('../controller/signUpController');
+const signInController = require('../controller/signInController')
 
 const express = require('express');
 
@@ -35,7 +36,18 @@ const router =express.Router();
      })
      router.get('/signIn',(request,response)=>{
            
-           response.render('accueil');
+           
+     })
+
+     router.post('/signIn',(request,response)=>{
+          if(signInController.Login(request,response)){
+            response.redirect('/logis/users/demand');
+          };
+     })
+
+
+     router.get('/pageToDashboard',(request,response)=>{
+          response.redirect('logis/user/commande')
      })
 
 exports.requestHandler = router;

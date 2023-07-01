@@ -11,6 +11,13 @@
 </head>
 <body>
 
+    <% if(obPourPassword?.error) { %>
+      
+        <script>
+            alert(`<%= obPourPassword?.error %>`)
+        </script>
+
+    <% } %>
     <section id="nav-bar">
         <a href="#" class="title-first">Lo    Gi     S</a>
       <div class="bloc1-nav1">
@@ -66,12 +73,22 @@
                 <img src="/images/images.jpg" width="100" height="100" class="avatar"><br><br></center>
                     <h1 class="titre1">Log in</h1>
                     <div class="mini-section">
-                        <form method="POST">  
-                           <label for="email">Email</label><br>&nbsp<input type="text" name="email" placeholder="entrez  email">
-                           <label for="motdepasse">Mot de passe</label>&nbsp<input type="password" name="password" placeholder="entrez votre mot de passe" id="mdp_client"><br>
+                        <form method="POST" action="/logis/users/signIn">  
+                           <label for="email">Email</label><br>&nbsp<input type="text" name="email" placeholder="entrez  email" value="<%= obPourEmail?.inputEmail %>">
+                           <% if(obPourEmail?.value && obPourEmail?.indice=='email') { %>
+                            <div class="notify first" >
+                                 <%= obPourEmail?.value %>
+                            </div>
+                         <% } %> 
+                           <label for="motdepasse">Mot de passe</label>&nbsp<input type="password" name="password" placeholder="entrez votre mot de passe" id="mdp_client" value="<%= obPourPassword?.inputPassword %>"><br>
+                           <% if(obPourPassword?.value && obPourPassword?.indice=='password') { %>
+                            <div class="notify">
+                                 <%= obPourPassword?.value %>
+                            </div>
+                           <% } %> 
                            <input type="submit" name="submit" value="Login" class="login" ><br><br>
                         </form>   
-                        <p class="paragraphe">don't have an account ? <span><a href="inscription.php">Sign up</a></span> </p>      
+                        <p class="paragraphe">don't have an account ? <span><a href="/logis/users/signUp">Sign up</a></span> </p>      
                 </div>
                 <div class="minisection2"></div>
                 </div>

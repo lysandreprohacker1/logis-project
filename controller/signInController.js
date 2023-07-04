@@ -128,13 +128,13 @@ const Login =(request,response)=>{
                          }else{
                             return response.render('signIn',{
                                 obPourPassword :{
-                                    value :'valide',
+                                    value :'incorrecte',
                                     indice:'password',
                                     inputPassword:password,
-                                    error:'password saisi invalide'
+                                    error:'password saisi incorrecte'
                                    },
                                 obPourEmail: {
-                                    value :'invalide',
+                                    value :'valide',
                                     indice :'email',
                                     inputEmail:email,
                                     

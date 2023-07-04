@@ -9,6 +9,7 @@ const singUpController = require('../controller/signUpController');
 const signInController = require('../controller/signInController')
 
 const express = require('express');
+const { render } = require('ejs');
 
 
 const router =express.Router();
@@ -36,7 +37,10 @@ const router =express.Router();
      })
      router.get('/signIn',(request,response)=>{
            
-           
+           response.render('signIn',{
+               obPourEmail:null,
+               obPourPassword:null
+           })
      })
 
      router.post('/signIn',(request,response)=>{
@@ -46,8 +50,8 @@ const router =express.Router();
      })
 
 
-     router.get('/pageToDashboard',(request,response)=>{
-          response.redirect('logis/user/commande')
+     router.post('/dashboard',(request,response)=>{
+          response.sendFile(path.join(rootDir.rootDir,'views','html','index.html'))
      })
 
 exports.requestHandler = router;

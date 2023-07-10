@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<style>
+  /***************************************************************** code formulaire destination du colis *************************************/
+  .sect_dest_commande{
+            width: 10%;
+            height: 10px;
+           color: #fff;
+           padding: 0px 700px 0px 250px;
+            margin-left: 400px;
+            transform: rotate(90deg);
+          
+           }
+
+/******************************************** cote page suivant ************************************************************************/
+        .bar_suivit li a{
+             margin: 5px 10px;
+             /* background-color: rgb(242, 247, 242); */
+             color: #333;
+            }
+   
+         .bar_suivit  li{ 
+                 width: 30px;
+                 height: 30px;
+                 border: 1px solid #1a1a1a;
+                 border-radius: 15px;
+                 align-items: center;
+                 margin-bottom: 40px;
+                 list-style: none;
+            }
+            .trai{
+                width: 2px;
+                height: 40px;
+                background-color: rgb(14, 13, 13);
+                position: absolute;
+                left: 60px;
+                transform: translateY(-40px);
+            }
+            
+ .bar_suivit{
+    width: 100px;
+    height: 250px;
+    background-color: #e3e8f7;;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+    transform: translateY(-7px);
+ }
+
+ .div_ul{
+    padding: 10px 15px;
+    display: flex;
+ }
+ .titre_suivit p{
+    transform: translateY(5px);
+    margin-bottom: 50px;
+    margin-left: 10px;
+ }
+ .bar_suivit li.active2
+{
+    background-color: rgb(157, 170, 243);
+
+ }
+ .btn{
+  margin-left: 30px;
+ }
+ /* fom destinataire */
+ .infodDes{
+  width: 100%;
+   height: 350px;
+   margin: 20px;
+  
+ }
+
+
+ .card{
+  width: 82%;
+  margin-left: 250px;
+  transform: translateY(-40px);
+ }
+ .bloc1 input{
+  width: 400px;
+ }
+
+ .bloc1{
+  width: 50%;
+ }
+
+  .bloc2 input{
+  width: 400px;
+ }
+
+ .bloc2 select{
+  width: 400px;
+ }
+
+ .bloc2{
+  width: 50%;
+ }
+
+ .spans select{
+  width: 100px;
+ }
+  .col-md-6s .input-group{
+   width: 400px;
+   height: 50px;
+ } 
+
+ .col-md-6s span{
+  height: 45px;
+  width: 100px;
+ }
+ .col-md-6s input{
+  height: 45px;
+ 
+ }
+
+ .sect_dest_commande .nbr{
+  transform: rotate(90deg);
+ }
+ .footer{
+  width: 80%;
+  margin-left: 250px;
+ }
+
+</style>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Without menu - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/page1.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar layout-without-menu">
+      <div class="layout-container">
+            <!-- Menu -->
+           
+            
+           <%- include('aside.ejs') -%>
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Layout Demo -->
+              <div class="layout-demo-wrapper">
+
+                <div class="card mb-4">
+
+                  <div>
+                         <h5 class="card-header">Colis</h5>
+                         <div class="d-flex align-items-start align-items-sm-center gap-4">
+                          <img
+                            src="/assets/img/elements/images.jpg"
+                            alt="user-avatar"
+                            class="d-block rounded"
+                            height="100"
+                            width="100"
+                            id="uploadedAvatar"
+                          />
+
+                  </div>
+                  <div>
+                    
+                  </div>
+
+
+                 
+                  <div class="card-body">
+                    
+                      <div class="button-wrapper">
+                        <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                          <span class="d-none d-sm-block">Informations du destinataire de colis</span>
+                          <i class="bx bx-upload d-block d-sm-none"></i>
+                          <input
+                            type="file"
+                            id="upload"
+                            class="account-file-input"
+                            hidden
+                            accept="image/png, image/jpeg"
+                          />
+                        </label>
+                  
+  
+                        <p class="text-muted mb-0">tous les champs sont obligatoires pour la securité de votre colis</p>
+                      </div>
+                    </div>
+                 
+                      <section class="sect_dest_commande"> 
+                      
+                        
+                      
+                        <section class="bar_suivit">
+                        <div class="div_ul">
+                            <ul id="ul_bar_suivit">
+                                <li  class="active2"><a class="nbr" href="#">1</a></li>
+                                   <div class="trai"></div>
+                
+                                <li><a class="nbr"  href="#">2</a></li>
+                                   <div  class="trai"></div>
+                
+                                <li><a class="nbr"  href="#">3</a></li>
+                                    
+                
+                           
+                        </div>
+                    </section>
+                    </div>
+              
+                  <hr class="my-0" />
+    
+                  <form id="formAccountSettings" style="padding-left:10px;" action="/logis/users/dashboard/demande-expedition" class="d-flex fontDes" method="POST">
+                 
+
+                    <div class="infodDes d-flex">  
+                      <div class="bloc1">
+                        <div class="mb-3 col-md-6">
+                          <label for="firstName" class="form-label">Prenom</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            placeholder="Prenom du destinataire"
+                            value="<%= prenomInfo?.info?.prenom  %>"
+                            autofocus
+                          />
+                          <% if(prenomInfo?.behindPrenom){ %>
+                             <div class="red">
+                                 <%= prenomInfo?.behindPrenom %> 
+                             </div>
+                          <% } %>
+                        </div>
+  
+  
+                        <div class="mb-3 col-md-6">
+                          <label for="lastName" class="form-label">Nom</label>
+                          <input class="form-control" type="text" name="lastName" id="lastName" placeholder="nom du destinataire"
+                                value="<%= prenomInfo?.info?.nom  %> "
+                          />
+                          <% if(prenomInfo?.behindNom){ %>
+                            <div class="red">
+                               <%= prenomInfo?.behindNom %>
+                            </div>
+                          <% } %>
+                        </div>
+
+  
+                        <div class="mb-3 col-md-6">
+                          <label for="email" class="form-label">E-mail</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="email"
+                            name="email"
+                            value="<%= prenomInfo?.info?.email %>"
+                            placeholder="email@example.com"
+                          />
+                          <% if(prenomInfo?.behindEmail){ %>
+                              <div class="red">
+                                  <%= prenomInfo?.behindEmail %>
+                              </div>
+                          <% } %>
+                        </div>                    
+                      </div>  
+
+                      <div class="bloc2">
+                        <div class="mb-3 col-md-6">
+                          <label for="timeZones" class="form-label">Pays</label>
+                          <select id="timeZones" class="select2 form-select" name="Pays">
+                            <option value="<%= prenomInfo?.info?.pays.trim() %>"><%= prenomInfo?.info?.pays.trim() %></option>
+                             <% for(let pays of infoPays){ %>
+                              <option value="<%= pays.pays.trim()%>"><%= pays.pays.trim()%></option>
+                            <%} %>
+                          </select>
+                          
+     
+                          <% if(prenomInfo?.behindPays){ %>
+                            <div class="red">
+                               <%= prenomInfo?.behindPays %>
+                            </div>
+                          <% } %>
+                        
+                        </div>
+    
+    
+                        <div class="mb-3 col-md-6s">
+                          <label class="form-label" for="phoneNumber">Phone Number</label>
+                          <div class="input-group input-group-merge content-div">
+                            <span class="input-group-text spans">
+                              <select id="ville width" class="ville" name="indicePays">
+                                  <% if(prenomInfo?.info?.indice){ %>
+                                      <option value="<%= prenomInfo?.info?.indice %>"><%= prenomInfo?.info?.indice  %></option>
+                                  <% } %>
+                             </select><br><br>
+                            </span>
+                            
+                            <input 
+                              type="text"
+                              id="phoneNumber"
+                              name="phoneNumber"
+                              class="form-control"
+                              placeholder="000 00 00 00"
+                              
+                              value="<%= prenomInfo?.info?.phoneNumber %>"
+                              
+                             
+                            />
+                          </div>
+                          <% if(prenomInfo?.behindPhoneNumber){ %>
+                            <div class="red">
+                                <%= prenomInfo?.behindPhoneNumber %>
+                            </div>
+                          <% } %>
+                        </div>
+  
+                        <div class="mb-3 col-md-6 container-org" >
+                          <label for="organization" class="form-label">Ville</label>
+                          <select
+                            
+                            class="form-control"
+                            id="organization"
+                            class="organization"
+                            name="ville"
+                           placeholder="Entrer votre ville"
+                           
+                          >
+                          
+                          <% if(prenomInfo?.info?.ville){ %>
+                            <option value="<%= prenomInfo?.info?.ville %>"><%= prenomInfo?.info?.ville %></option>
+                              <% for(let pays of prenomInfo?.info?.tousLesPays){ %>
+                                      <% if(pays.pays==prenomInfo?.info?.pays){ %>
+                                            <% for(let i of pays.villes){ %>
+                                              <option value="<%= i %>"><%= i %></option>
+                                            <% } %>
+                                      <%} %>
+                              <% } %>
+                          <% } %>
+                          </select>
+              
+                        </div>
+                        <% if(prenomInfo?.behindVille){ %>
+                          <div class="red">
+                              <%= prenomInfo?.behindVille%>
+                          </div>
+                        <% } %>
+                      </div>
+                     
+
+                
+                            
+                        
+                    <script type="module" defer>
+                    //-------gestion des pays , villes et indices ------------
+                      const tableauIndice =[
+    {indice:'+267',
+    pays:'Botswana',
+     villes:['Bobonong','Letlhakane','Tonota','Jwaneng','Tutume','Gabane','Mmadinare','Ghanzi','Kasane',
+              'Orapa','Tsabong','Shoshong','Gumare','Kopong','Letlhakeng','Lerala','Molapowabojang',
+               'Otse','Shakawe','Metsimotlhaba' ]
+    
+    },
+    {indice:'+213',
+    pays:'Algerie',
+     villes:['Oran','Constantine','Annaba','Blida','Batna','Djelfa','Sétif','Sidi bel Abbès','Biskra',
+             'Tébessa','El Oued','Skikda','Tiaret','Béjaïa','Tlemcen','Ouargla','Béchar',
+             'Mostaganem','Bordj Bou Arreridj','Chlef','Souk Ahras','Médéa','El Eulma','Touggourt',
+             'Ghardaïa','Saïda','Laghouat','MSila','Jijel','Relizane','Guelma','Aïn Beïda','Khenchela',
+             'Bousaada','Mascara','Tizi Ouzou']
+    },
+    {indice:'+244',
+    pays:'Angola',
+      villes:['Luanda','Huambo','Lobito','Benguela','Lucapa','Kuito','Lubango','Malanje',
+              'Namibe','Soyo','Cabinda','Uíge','Tomboa','Saurimo','Sumbe','Caluquembe',
+               'Gabela','Caxito','Longonjo','Mbanza-Kongo','N\'Dalantando','Caála','Luena',
+               'Camacupa','Menongue','Catabola','Luau','N\'zeto','Catumbela','Camabatela','Waku-Kungo',
+               'Caconda','Ondjiva','Cangamba']
+    },
+    {indice:'+257',
+    pays:'Burundi',
+     villes:[
+        'Bujumbura','Gitega','Ngozi','Rumonge','Kayanza','Muyinga','Makamba','Cibitoke',
+        'Rutana','Ruyigi','Bururi','Bubanza','Karuzi','Cankuzo','Kirundo','Muramvya',
+        'Mwaro','Nyanza Lac','Gihofi','Gatumba']
+    },
+    {indice:'+237',
+    pays:'Cameroun',
+    regex:'/(\+237|237)\s(6|2)(2|3|[5-9])[0-9]{7}/',
+     villes:['Yaoundé', 'Garoua','Bamenda','Maroua','Bafoussam','Ngaoundéré','Bertoua','Edéa','Nkongsamba','Loum','Kumba', 'Kumbo','Foumban','Mbouda'
+             ,'Dschang','Limbé','Ebolowa','Kousséri','Guider','Meiganga','Yagoua','Mbalmayo','Bafang','Tiko'
+             ,'Bafia','Wum','Kribi', 'Buea','Sangmélima','Foumbot','Bangangté','Batouri','Banyo','Nkambé','Bali','Mbanga','Mokolo'
+             ,'Melong','Manjo','Garoua-Boulaï','Mora','Kaélé','Tibati','Ndop','Akonolinga','Eséka','Mamfé', 'Obala','Muyuka','Nanga-Eboko', 'Abong-Mbang','Fundong'
+             ,'Nkoteng','Fontem','Mbandjock','Touboro','Ngaoundal','Yokadouma','Pitoa,Tombel','Kékem','Magba','Bélabo','Tonga','Maga'
+             ,'Koutaba','Blangoua','Guidiguis','Bogo','Batibo','Yabassi','Figuil','Makénéné','Gazawa','Tcholliré'
+        ]
+},
+    {indice:'+27',
+    pays:'Afrique Du Sud',
+     villes:[
+        'Le Cap','Durban','Johannesburg','Soweto','Pretoria','Port Elizabeth','Pietermaritzburg',
+	     'Benoni','Tembisa','Vereeniging','Bloemfontein','Boksburg','Welkom','Newcastle','East London',
+	     'Krugersdorp','Brakpan','Botshabelo','Richards Bay','Witbank','Centurion','Vanderbijlpark',
+	     'Uitenhage','Alberton','Somerset West','Paarl','George','Klerksdorp','Carletonville','Springs',
+	     'Midrand','Vryheid','Embalenhle','Middelburg','Orkney','Westonaria','Epumalanga','Nigel',
+	     'Randfontein','Brits','Virginia','Worcester','Bisho','Kimberley','Polokwane','Potchefstroom',	
+	     'Emnambithi','Rustenburg','Bethal','Queenstown','Nelspruit','Phalaborwa','Delmas','Kroonstad',
+	     'Kutlwanong','Stilfontein','Warmbath','Potgietersrus','Piet Retief','Stellenbosch',
+	     'Dundee','Mabopane']
+    },
+    {indice:'+238',
+    pays:'Cap-Vert',
+     villes:[
+'Praia','Mindelo','Santa Maria','Assomada','Porto Novo','Pedra Badejo','São Filipe','Tarrafal',
+'Espargos','Calheta de São Miguel','Vila do Maio','Ribeira Brava','Picos' ]
+    },
+    {indice:'+269',
+    pays:'Comores',
+     villes:['Moroni','Mutsamudu','Domoni','Fomboni','Tsembéhou','Mvouni/Mavingouni/Mkazi',
+             'Sima','Ouani','Mirontsi','Adda Daouéni','Bazmini','Koni Djodjo','Moya','Iconi',
+             'Ounkazi','Dindri','gandzalé','Mbéni','Batsa','Barakani','Mbambao Mtsanga','Chandra',
+             'Ouellah Hamahamet','Mramani','Mrémani','Koki','Jimlimi','Mitsamiouli','Itsandzeni/Gnadomboeni',
+             'Foumbouni','Nkourani Sima','Magnassini','Mitsoudjé-Troumbeni','Singani']
+   },
+    {indice:'+225',
+    pays:'Cote d\'Ivoire',
+     villes:['Abidjan','Bouaké','Korhogo','Daloa','San-Pédro','Anyama','Yamoussoukro',
+             'Divo','Gagnoa','Soubré','Man','Duékoué',	'Bingerville','Guiglo','Lakota','Abengourou',
+             'Ferké','Adzopé','Méagui','Bondoukou','Dabou','Sinfra','Agboville','Vavoua','Danané','Grand-Béreby','Oumé',
+             'Issia','Grand-Bassam','Bloléquin','Okrouyo','Bonoua',	'Bonon','Gabiadji','Grand-Zattry','Zouan-Hounien',
+             'Seitifla','Dania','Séguéla',	'Daoukro','Aboisso','Buyo','Saïoua']
+    },
+    {indice:'+20',
+    pays:'Egypte',
+    villes:['Le Caire',	'Alexandrie','Gizeh','Shubra El-Kheima','Port-Saïd','Suez','Louxor',
+            'Mansourah', 'El-Mahalla el-Koubra','Tanta','Assiout','Ismaïlia','Médinet el-Fayoum','Zagazig',	
+            'Assouan','Damiette','Damanhur','Al-Minya','Beni Suef','Qena','Sohag','Hurghada','Madinat Sitta Uktubar',
+            'Schibin al-Kawm','Benha','Kafr el-Cheik','El-Arich','Mallawi','Al-Aschir min Ramadan','Bilbéis','Mersa Matrouh',
+            'Edfou','Mit Ghamr','Al-Hawamidiyya','Dessouk','Kalyoub','Abu Kabir',
+            'Kafr ad-Dawwar','Dschirdscha','Akhmîm','Matarée']
+   },
+    {indice:'+241',
+    pays:'Gabon',
+     villes:[
+        'Libreville','Port-Gentil','Franceville','Oyem','Moanda','Mouila','Lambaréné','Tchibanga','Koulamoutou',
+         'Makokou','Bitam','Tsogni','Gamba','Mounana','Ntoum','Nkan','Lastourville','Okondja','Ndendé',	
+         'Booué','Fougamou','Ndjolé','Mbigou','Mayumba','Mitzic','Mékambo','Lékoni','Mimongo','Minvoul',
+        'Medouneu','Omboué','Cocobeach','Kango']
+   },
+    {indice:'+291',
+    pays:'Erythrée',
+    villes:[
+        'Asmara','Assab','Keren','Massaoua','Édd','Mendefera','Barentu','Adi Keyh','Ghinda',
+        'Mersa Fatma','Beylul','Dek\'emhare','Nakfa','Agordat','Himbirti','Nefasit','Adi Quala',
+        'Senafe','Segeneiti','Teseney'
+    ]
+    },
+    {indice:'+233',
+    pays:'Ghana',
+     villes:[
+        'Accra','Kumasi','Tamale','Sekondi-Takoradi','Ashaiman','Sunyani','Cape Coast','Obuasi',
+        'Teshie','Tema','Madina','Koforidua','Wa','Techiman','Ho','Nungua',	'Lashibi',	'Dome',	'Tema New Town',
+         'Gbawe','Oduponkpehe',	'Ejura','Taifa','Bawku','Aflao','Agona Swedru','Bolgatanga',
+        'Tafo','Berekum','Nkawkaw','Akim Oda','Winneba','Hohoe','Yendi','Suhum','Kintampo','Adenta East','Nsawam','Mampong','Konongo',	
+        'Asamankese','Wenchi','Savelugu','Agogo','Anloga','Prestea','Effiakuma','Tarkwa','Elmina','Dunkwa-on-Offin',
+        'Begoro','Kpandu','Kintampo','Navrongo','Axim','Apam','Salaga','Saltpond','Akwatia',
+        'Shama','Keta','Nyakrom','Bibiani','Somanya','Foso','Aburi','Mumford','Bechem','Duayaw Nkwanta','Kade','Anomabu','Akropong',
+        'Kete-Krachi','Kibi','Kpandae','Mpraeso','Akim Swedru','Aboso','Bekwai',	
+        'Japekrom','Banda Ahenkro'
+     ]
+   },
+    {indice:'+224',
+    pays:'Guinée',
+      villes:[
+        'Beyla','Boffa','Boké','Conakry','Coyah','Dabola','Dalaba','Dinguiraye','Dubreka','Faranah','Forecariah',
+        'Fria','Gaoual','Gueckedou','Kamsar','Kankan','Kérouane','Kindia','Kissidougou',
+        'Koubia','Koundara','Kouroussa','Labé','Lélouma','Lola','Macenta','Mali','Mamou','Mandiana',
+         'N\'Zérékoré','Ourouss','Siguiri','Télimélé','Tougué','Yomou','Youkounkoun' ]
+     }
+
+]
+                      
+let d =document.querySelector('#timeZones')
+     
+                        d.addEventListener('change',(e)=>{
+                          
+                          
+                            
+                             if(d.value.trim() !=null && d.value.trim() !=''){
+                                            
+                                            
+                                            const  select =document.querySelector('#organization')
+                                             window.dynamic=select.children;
+
+
+                                            console.log(dynamic);
+                                            for(let paysObject of tableauIndice){
+                                               if(paysObject.pays.trim().toLocaleLowerCase()==d.value.trim().toLocaleLowerCase()){
+                                                document.querySelector('#organization').innerHTML=`<option value=null>choisir une ville</option>`;
+                                                                 
+                                                for(let ville of  paysObject.villes ){
+                                                   let  option =document.createElement('option');
+                                                        option.textContent=ville;
+                                                        option.value=ville;
+
+                                                        document.querySelector('#organization').append(option);
+                                                       
+                                                       console.log(Object.getPrototypeOf(dynamic))
+                                                }
+
+                                                //----------- gestion de l'indice du pays choisi-------------------
+
+                             
+                                                document.querySelector('.ville').innerHTML=`<option value=${paysObject.indice}>${paysObject.indice}</option>`;
+
+                                                //-------------------- fin de la gestion des indices de pays----------------
+                                               }
+                                      }
+
+                             }
+                             
+                        })
+
+
+                    
+                   //------------gestion du type d'information a entrer dans le 
+                   //-----------champs du numero
+
+
+                   let phoneNumber=document.querySelector('#phoneNumber');
+                   let tabNumber =[0,1,2,3,4,5,6,7,8,9];
+
+                   phoneNumber.addEventListener('keypress',(e)=>{
+                        
+                          let k = parseInt(e.key);
+                          ;
+
+                          if(!tabNumber.includes(k)){
+                             e.preventDefault();
+                          }
+                         
+                          
+                          
+                   })
+
+
+
+                   </script>
+                         
+                  
+
+ 
+  
+                    </div>
+                   
+                    <input class="btn btn-primary" type="submit" onclick="history" value="Suivant ">
+                  </form>
+               
+                </div>
+
+         
+
+
+
+
+
+                
+                  <div class="layout-demo-info center">
+                                  
+                                    <div class="d-flex">
+                                      <button class="btn btn-primary" type="button" onclick="history.back()">Go Back</button>
+                                    </div>
+                                
+                  </div>
+              
+              </div>
+              <!--/ Layout Demo -->
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <%- include('footer.ejs')-%>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+    </div>
+    <!-- / Layout wrapper -->
+
+  
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
+    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>

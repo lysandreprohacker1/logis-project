@@ -126,6 +126,18 @@
  }
 
 
+ .red{
+  color:red;
+ }
+
+ .fromPage1{
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+ }
+
+
 </style>
 
 <html
@@ -278,8 +290,18 @@
                           name="description"
                           placeholder="Entrer votre nom"
                           autofocus
-                          maxlength="50"
-                        /> veuillez décrire votre colis avec au maximum 50 mots</textarea>
+                          maxlength="200"
+                          value="<%= behind?.description %>"
+                        /><% if(behind?.description){ %>
+                          <%= information?.description %> <%} else{ %> veuillez décrire votre colis avec au maximum 50 mots  <% } %>
+                      </textarea>
+                        
+                        <% if(behind?.description){ %>
+                             <div class="red">
+                                <%= behind?.description %>
+                             </div>
+                          <% } %>
+                      
                       </div>
                       <!--
                       <div class="mb-3 col-md-6">
@@ -293,9 +315,22 @@
                           class="form-control"
                           type="number"
                           id="Longeur"
-                          name="longeur"
-                          placeholder=" 0"
+                          name="longueur"
+                          placeholder=" 1"
+
+                          min="1"
+                          value="<%= information?.longueur %>"
                         />
+
+                        <% if(behind?.longueur){ %>
+                          
+                          <div class="red">
+                              <%= behind?.longueur %>
+                          </div>
+                      
+                        <% } %> 
+
+
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="largeur" class="form-label">Largeur (en cm)</label>
@@ -304,8 +339,20 @@
                           type="number"
                           id="largeur"
                           name="largeur"
-                          placeholder=" 0"
+                          placeholder=" 1"
+
+                          min="1"
+                          value="<%= information?.largeur %>"
                         />
+                       <% if(behind?.largeur){ %>
+                          
+                          <div class="red">
+                              <%= behind?.largeur %>
+                          </div>
+                      
+                      <% } %> 
+
+
                       </div>
                     
                     
@@ -316,8 +363,19 @@
                           type="number"
                           id="poids"
                           name="poids"
-                          placeholder=" 0"
+                          placeholder=" 1"
+                          min="1"
+                          value="<%=information?.poids %>"
                         />
+                        
+                        <% if(behind?.poids){ %>
+                          
+                          <div class="red">
+                              <%= behind?.poids %>
+                          </div>
+                      
+                        <% } %> 
+
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="quantite" class="form-label">Quantite</label>
@@ -327,7 +385,17 @@
                           id="quantite"
                           name="quantite"
                           placeholder=" 1"
+                          min="1"
+                          value="<%= information?.quantite %>"
                         />
+
+                        <% if(behind?.quantite){ %>
+                          
+                          <div class="red">
+                              <%= behind?.quantite %>
+                          </div>
+                      
+                        <% } %> 
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="hauteur" class="form-label">Hauteur</label>
@@ -337,21 +405,126 @@
                           id="hauteur"
                           name="hauteur"
                          placeholder="0"
+                         min="0"
+
+                         
+
+
+                          value="<%= information?.hauteur %>"
                         />
+                        
+                        <% if(behind?.hauteur){ %>
+                          
+                          <div class="red">
+                              <%= behind?.hauteur %>
+                              
+                          </div>
+                      
+                        <% } %> 
+
+
                       </div>
                     
-                    
+
                           </div>
 
                           
-                           
+                          
+
+
 
                           
                     </div>
 
-                    <div name="">
-                      <%= infoRecupererDeLaPage1.nom%>
+                    <div class="infodDes d-flex fromPage1">  
+                      <div class="bloc1">
+                        <div class="mb-3 col-md-6">
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            placeholder="Prenom du destinataire"
+                            value="<%= infoRecupererDeLaPage1?.prenom  %>"
+                            autofocus
+                          />
+
+                        </div>
+  
+  
+                        <div class="mb-3 col-md-6">
+                          <input class="form-control" type="text" name="lastName" id="lastName" placeholder="nom du destinataire"
+                                value="<%= infoRecupererDeLaPage1?.nom %> "
+                          />
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="email"
+                            name="email"
+                            value="<%= infoRecupererDeLaPage1?.email %>"
+                           
+                          />
+
+                        </div>                    
+                      </div>  
+
+                      <div class="bloc2">
+                        <div class="mb-3 col-md-6">
+                          <select id="timeZones" class="select2 form-select" name="pays">
+                              <option value="<%= infoRecupererDeLaPage1?.pays %>"><%= infoRecupererDeLaPage1?.Pays %></option>
+                          </select>
+                        </div>
+    
+    
+                        <div class="mb-3 col-md-6s">
+                          <div class="input-group input-group-merge content-div">
+                            <span class="input-group-text spans">
+                              <select id="ville width" class="ville" name="indicePays">
+                                
+                                      <option value="<%= infoRecupererDeLaPage1?.indice %>"><%= infoRecupererDeLaPage1?.indice %></option>
+                             </select>
+                            </span>
+                            
+                            <input 
+                              type="text"
+                              id="phoneNumber"
+                              name="phoneNumber"
+                              class="form-control"
+                              value="<%= infoRecupererDeLaPage1?.phoneNumber %>"
+                            />
+                          </div>
+
+                        </div>
+  
+                        <div class="mb-3 col-md-6 container-org" >
+                          <select
+                            
+                            class="form-control"
+                            id="organization"
+                            class="organization"
+                            name="ville"
+                           placeholder="Entrer votre ville"
+                          >
+                            <option value="<%= infoRecupererDeLaPage1?.ville %>"></option>
+                          </select>
+                        </div>
+
+                      </div>
+                     
+
+                
+                            
+                        
+                    
+                  
+
+ 
+  
                     </div>
+                    
 
                     <input class="btn btn-primary" type="submit" onclick="history" value="Suivant"> 
 
@@ -368,11 +541,8 @@
 
                 <div class="layout-demo-info center">
                 
-                  <div class="d-flex">
-                    
-                      
-                      <input class="btn btn-primary" type="submit" onclick="history" value="Suivant"> 
-                
+                  <div class="d-flex" style="justify-content: center;">
+                    <button class="btn btn-primary" type="button" onclick="history.back()">Go Back</button>
                   </div>
                
                 </div>

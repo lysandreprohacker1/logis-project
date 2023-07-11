@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 const rootDir=require('../utils/api.villes');
 const { response } = require('express');
 
@@ -135,16 +136,28 @@ const tableauIndice =[
 ]
 
 let  infoFromPage1;
+
+
         
 
 const Page2Demand=(request,response)=>{
    console.log(request.body);
-   let description = request.body.description;
+   let description = request.body.description.trim();
    let poids = request.body.poids;
    let hauteur =request.body.hauteur;
    let longueur = request.body.longueur;
    let quantite =request.body.quantite;
    let largeur =request.body.largeur;
+
+   let  infoRecupererDeLaPage1 ={
+       nom:request.body.lastName,
+       prenom:request.body.firstName,
+       email:request.body.email,
+       pays:request.body.pays,
+       indice:request.body.indicePays,
+       phoneNumber:request.body.phoneNumber,
+       ville:request.body.ville
+   }
 
    const Information={
     description:description,
@@ -154,20 +167,165 @@ const Page2Demand=(request,response)=>{
     longueur:longueur,
     quantite:quantite
    }
+
+   let  infoFromPage2={
+      currentPageInformation:Information,
+      infoRecupererDeLaPage1:infoRecupererDeLaPage1
+   }
+
+
   
 
    if(description.trim().toLowerCase()=='veuillez décrire votre colis avec au maximum 50 mots'.toLocaleLowerCase() 
       || description.trim().toLocaleLowerCase()=='' )
    {
 
-         response.render('html/info-colis-expedition',{
-             information:Information
+         return response.render('html/infos-colis-expedition',{
+             information:Information,
+             behind:{
+                description:'invalid',
+                poids:null,
+                hauteur:null,
+                largeur:null,
+                longueur:null,
+                quantite:null
+             },
+             infoRecupererDeLaPage1:infoRecupererDeLaPage1
+
+
+
          })
+         
 
    }
 
 
+   if(largeur.trim().toLowerCase()==''
+      || largeur.trim().toLocaleLowerCase()<=0 )
+   {
 
+         return response.render('html/infos-colis-expedition',{
+             information:Information,
+             behind:{
+                description:'valid',
+                poids:null,
+                hauteur:null,
+                largeur:'invalid',
+                longueur:null,
+                quantite:null
+             },
+             infoRecupererDeLaPage1:infoRecupererDeLaPage1
+
+
+         })
+         
+
+   }
+
+   if(quantite.trim().toLowerCase()==''
+   || quantite.trim().toLocaleLowerCase()<=0 )
+{
+
+      return response.render('html/infos-colis-expedition',{
+          information:Information,
+          behind:{
+             description:'valid',
+             poids:null,
+             hauteur:null,
+             largeur:'valid',
+             longueur:null,
+             quantite:'invalid'
+          },
+          infoRecupererDeLaPage1:infoRecupererDeLaPage1
+
+
+      })
+      
+
+}
+
+console.log(longueur.trim().toLowerCase()==''
+, longueur.trim().toLocaleLowerCase()<=0 )
+
+if(longueur.trim().toLowerCase()==''
+|| longueur.trim().toLocaleLowerCase()<=0 )
+{
+
+   return response.render('html/infos-colis-expedition',{
+       information:Information,
+       behind:{
+          description:'valid',
+          poids:null,
+          hauteur:null,
+          largeur:'valid',
+          longueur:'invalid',
+          quantite:'valid'
+       },
+       infoRecupererDeLaPage1:infoRecupererDeLaPage1
+
+
+   })
+
+
+
+
+}
+
+console.log(poids.trim().toLowerCase()==''
+, poids.trim().toLocaleLowerCase()<=0 )
+
+if(poids.trim().toLowerCase()==''
+|| poids.trim().toLocaleLowerCase()<=0 )
+{
+
+   return response.render('html/infos-colis-expedition',{
+       information:Information,
+       behind:{
+          description:'valid',
+          poids:'invalid',
+          hauteur:null,
+          largeur:'valid',
+          longueur:'valid',
+          quantite:'valid'
+       },
+       infoRecupererDeLaPage1:infoRecupererDeLaPage1
+
+
+   })
+
+
+
+   
+
+}
+
+
+if(hauteur.trim().toLowerCase()==''
+|| hauteur.trim().toLocaleLowerCase()<=0 )
+{
+
+   return response.render('html/infos-colis-expedition',{
+       information:Information,
+       behind:{
+          description:'valid',
+          poids:'valid',
+          hauteur:'invalid',
+          largeur:'valid',
+          longueur:'valid',
+          quantite:'valid'
+       },
+       infoRecupererDeLaPage1:infoRecupererDeLaPage1
+
+
+   })
+
+
+
+   
+
+}
+
+   
 
 }
 

@@ -2,6 +2,8 @@
 
 const path = require('path');
 
+let infoFromPage1;
+
 /*------------------------------------*/
 
 const rootDir = require('../utils/path');
@@ -73,7 +75,7 @@ const router =express.Router();
      router.post('/dashboard/demande-expedition',(request,response)=>{
          
 
-          Page1Demand.Page1Demand(request,response);
+          infoFromPage1= Page1Demand.Page1Demand(request,response);
            
 
      })
@@ -109,7 +111,7 @@ const router =express.Router();
      router.post('/dashboard/demande-expedition/suivant',(request,response)=>{
 
           
-          Page2Demand.Page2Demand(request,request)
+          Page2Demand.Page2Demand(request,response)
 
           //response.render('html/infos-colis-expedition');
 

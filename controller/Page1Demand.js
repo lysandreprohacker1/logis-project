@@ -316,8 +316,12 @@ const Page1Demand= (request,response)=>{
 
 
        response.status(200).render('html/infos-colis-expedition',{
-         infoRecupererDeLaPage1 :info
+         infoRecupererDeLaPage1 :info,
+         behind:null,
+         information:null
        });
+
+       return info;
 
 }
   

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <style>
   /***************************************************************** code formulaire destination du colis *************************************/
+ 
   .sect_dest_commande{
             width: 10%;
             height: 10px;
            color: #fff;
-           padding: 0px 700px 0px 250px;
-            margin-left: 400px;
-            transform: rotate(90deg);
+           padding: 0px 0px 0px 250px;
+            margin-left: 600px;
+            transform: rotate(-90deg);
           
            }
 
@@ -39,7 +40,7 @@
  .bar_suivit{
     width: 100px;
     height: 250px;
-    background-color: #e3e8f7;;
+
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   
@@ -116,6 +117,7 @@
 
  .sect_dest_commande .nbr{
   transform: rotate(90deg);
+  display: inline-block;
  }
  form{
   padding: 20px;
@@ -262,10 +264,10 @@
                         <section class="bar_suivit">
                         <div class="div_ul">
                             <ul id="ul_bar_suivit">
-                                <li  class="active2"><a class="nbr" href="#">1</a></li>
+                                <li><a class="nbr" href="#">1</a></li>
                                    <div class="trai"></div>
                 
-                                <li><a class="nbr"  href="#">2</a></li>
+                                <li class="active2"><a class="nbr"  href="#">2</a></li>
                                    <div  class="trai"></div>
                 
                                 <li><a class="nbr"  href="#">3</a></li>
@@ -513,31 +515,16 @@
                         </div>
 
                       </div>
-                     
 
-                
-                            
-                        
-                    
-                  
-
- 
-  
                     </div>
                     
 
-                    <input class="btn btn-primary" type="submit" onclick="history" value="Suivant"> 
+                    <input class="btn btn-primary" type="submit" onclick="window.location.href='valiter-commande.ejs'" value="Suivant"> 
 
                      
                     </form>
                
                 </div>
-
-         
-
-
-
-
 
                 <div class="layout-demo-info center">
                 

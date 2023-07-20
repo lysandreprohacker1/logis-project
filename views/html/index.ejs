@@ -32,13 +32,54 @@
   .imgmp{
     border-radius: 10px;
   }
-  body{
-    background: rgba(0, 0, 0, 0.7) url(../assets/img/elements/istockphoto-1284416170-1024x1024.jpg);
+ 
+
+  .bod{
+    background: rgba(0, 0, 0, 0.4) url(/assets/img/elements/istockphoto-184125452-1024x1024.jpg);
            background-repeat: no-repeat;
            background-position: center;
            background-size: cover; 
-           background-blend-mode: darken;
+           background-blend-mode: darken; 
   }
+ .card-command a{
+  transform: translateY(65px);
+  border: 1px solid blue;
+  color: blue;
+ }
+ .card-command a:hover{
+  transform: translateY(65px);
+  background-color: blue;
+  border: 1px solid blue;
+  color: rgb(249, 249, 253);
+ }
+ .div-nbrDemand .rounded{
+    width: 250px;
+    height: 100px;
+ }
+ .div-nbrDemand.dv-devi .text-success{
+  transform: translateY(50px);
+ }
+ #card-add {
+    flex-direction: column; 
+}
+@media(max-width:1036px){
+
+.first-cart {
+  width: 100%;
+}
+.first-cart .imageMp {
+  margin-left: -20px;
+ }
+ .row-bloc1{
+  width: 325px;
+ }
+ .row-bloc1 .imageMp{
+  width: 250px;
+ }
+}
+@media(max-width:980px){
+
+}
 </style>
 <html
   lang="en"
@@ -93,7 +134,7 @@
     <script src="/assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body class="bod">
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -117,7 +158,7 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="row">
                 <div class="col-lg-8 mb-4 order-0">
-                  <div class="card">
+                  <div class="card first-cart">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
@@ -143,15 +184,19 @@
                     </div>
                   </div>         
                 </div>
+                <div>
+                  
+                </div>
+
                 <div class="col-lg-4 col-md-4 order-1">
-                  <div class="row">
+                  <div class="row row-bloc1">
                     <div class="">
-                      <div class="card">
+                      <div class="card card-command">
 
                         <div class="card-body card-body2">
                           <div class="card-title d-flex align-items-start justify-content-between ">
                             <div class="avatar flex-shrink-0">
-                              <img class="rounded imageMp" src="/assets/img/elements/istockphoto-1431570827-1024x1024.jpg"/>
+                              <img class="rounded imageMp" src="/assets/img/elements/courrier-decoupe-telephone-mobile-pile-expedition_1134-1173.webp"/>
                             </div>
                             <div class="dropdown">
                               <button
@@ -169,15 +214,14 @@
                               </div> -->
                             </div>
                           </div>
-                           <a href="javascript:;" class="btn btn-sm btn-outline-primary">Demander</a>
+                           <a href="layouts-without-menu.ejs" class="btn btn-sm ">Demander une expedition</a>
                         </div>
                       </div>
                     </div>
 
                   </div>
                 </div>
-                <!-- Total Revenue -->
-                <!-- <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+               
                   <div class="card">
                     <div class="row row-bordered g-0">
                       <div class="col-md-8">
@@ -241,7 +285,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="image-moyen-paiement1">
-                             <img class="imgmp" src="/assets/img/elements/istockphoto-1279313029-1024x1024.jpg" alt="" width="280" height="200">
+                             <img class="imgmp" src="/assets/img/elements/conteneur-cargo-navire-fret-expedition-dechargement-au-port-destination-origine-grue-quai-business-commercial-global-outre-mer-logistique-.webp" alt="" width="280" height="200">
                              
                             </div>
                           </div>
@@ -259,7 +303,7 @@
                    
                         
                               <div class="image-moyen-paiement1">
-                                <img class="imgmp" src="/assets/img/elements/istockphoto-1279313029-1024x1024.jpg" alt="" width="280" height="200">
+                                <img class="imgmp" src="/assets/img/elements/avion-jaune-passager-3d-decolle-concept-fret-voyage-transport_715074-1238.webp" alt="" width="280" height="200">
                                 
                                </div>                             
                           
@@ -278,7 +322,7 @@
                             
                             
                               <div class="image-moyen-paiement1">
-                                <img class="imgmp" src="/assets/img/elements/istockphoto-1279313029-1024x1024.jpg" alt="" width="280" height="200">
+                                <img class="imgmp" src="/assets/img/elements/representation-chaine-approvisionnement-nature-morte_23-2150172489.webp" alt="" width="280" height="200">
                                 
                                </div>    
                           </div>
@@ -295,12 +339,6 @@
                 </div>
               </div>
 
-
-
-
-
-           
-
               <div class="col-12 col-md-8 order-3 ">
                 <div class="d-flex justify-content-between">
                   <div class="col-6 mb-4">
@@ -312,14 +350,17 @@
                              
                           </div>
                         </div>
-                        <div class="d-flex margin-left margin-left">
-                          <div>
+                        <div class="div-nbrDemand">
+                          
+                          <div class="d-flex">
                             <h3 class="card-title mb-2">857</h3>
-                            <span class="fw-semibold d-block mb-1">Devis</span>
-                            <small class="text-success fw-semibold">14%</small>
+                            <!-- <div class="d-block dv-devi">
+                              <span class="fw-semibold d-block mb-1">Devis</span>
+                             <small class="text-success fw-semibold">14%</small>
+                           </div> -->
                           </div>
-                          <div>
-                            <img class="rounded" src="/assets/img/elements/istockphoto-1193265314-1024x1024.jpg" alt="" width="50" height="50">
+                          <div class="">
+                            <img class="rounded" src="/assets/img/elements/gros-plan-livreur-colis_23-2149095884.webp" alt="" width="50" height="50">
                           </div>
                           
                         </div>
@@ -336,14 +377,17 @@
                              <h3>Demande total effectuer</h3>
                              </div>                             
                         </div>
-                        <div class="d-flex margin-left margin-left">
-                          <div>
+                        <div class="div-nbrDemand">
+                          <div class="d-flex">
                             <h3 class="card-title mb-2">857</h3>
-                            <span class="fw-semibold d-block mb-1">Devis</span>
-                            <small class="text-success fw-semibold">14%</small>
+                            <!-- <div class="d-block dv-devi">
+                               <span class="fw-semibold d-block mb-1">Devis</span>
+                              <small class="text-success fw-semibold">14%</small>
+                            </div> -->
+                           
                           </div>
                           <div>
-                            <img class="rounded" src="/assets/img/elements/istockphoto-1193265314-1024x1024.jpg" alt="" width="50" height="50">
+                            <img class="rounded" src="/assets/img/elements/travailleuse-afro-americaine-faisant-inventaire-colis-organisant-calendrier-livraison-tablette-numerique-sa-collegue-travaille-arriere-pla.webp" alt="" width="50" height="50">
                           </div>
                           
                         </div>

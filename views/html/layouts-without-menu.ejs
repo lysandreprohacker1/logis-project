@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <style>
   /***************************************************************** code formulaire destination du colis *************************************/
+ 
+  
   .sect_dest_commande{
             width: 10%;
             height: 10px;
            color: #fff;
-           padding: 0px 700px 0px 250px;
-            margin-left: 400px;
-            transform: rotate(90deg);
+           padding: 0px 0px 0px 250px;
+            margin-left: 600px;
+            transform: rotate(-90deg);
           
            }
 
@@ -39,7 +41,6 @@
  .bar_suivit{
     width: 100px;
     height: 250px;
-    background-color: #e3e8f7;;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   
@@ -116,12 +117,21 @@
 
  .sect_dest_commande .nbr{
   transform: rotate(90deg);
+  
  }
+
  .footer{
   width: 80%;
   margin-left: 250px;
  }
+ .sect_dest_commande .nbr{
+  transform: rotate(90deg);
+  display: inline-block;
+ }
+ .div-btnBack button{
+  transform: translateX(100%);
 
+ }
 </style>
 
 <html
@@ -202,7 +212,7 @@
                 <div class="card mb-4">
 
                   <div>
-                         <h5 class="card-header">Colis</h5>
+                         <h5 class="card-header">Destinataire</h5>
                          <div class="d-flex align-items-start align-items-sm-center gap-4">
                           <img
                             src="/assets/img/elements/images.jpg"
@@ -236,7 +246,7 @@
                         </label>
                   
   
-                        <p class="text-muted mb-0">tous les champs sont obligatoires pour la securité de votre colis</p>
+                        <p class="text-muted mb-0">Veuillez tous les champs obligatoires pour la securité de votre colis</p>
                       </div>
                     </div>
                  
@@ -289,7 +299,11 @@
   
                         <div class="mb-3 col-md-6">
                           <label for="lastName" class="form-label">Nom</label>
-                          <input class="form-control" type="text" name="lastName" id="lastName" placeholder="nom du destinataire"
+                          <input class="form-control" 
+                          type="text" name="lastName" 
+                          placeholder="nom du destinataire"
+                          id="lastName" 
+                         
                                 value="<%= prenomInfo?.info?.nom  %> "
                           />
                           <% if(prenomInfo?.behindNom){ %>
@@ -606,22 +620,14 @@ let d =document.querySelector('#timeZones')
   
                     </div>
                    
-                    <input class="btn btn-primary" type="submit" onclick="history" value="Suivant ">
+                 <input class="btn btn-primary" type="submit" onclick="window.location.href='infos-colis-expedition.ejs'" value="Suivant ">
                   </form>
-               
                 </div>
 
-         
-
-
-
-
-
-                
-                  <div class="layout-demo-info center">
+                  <div class="layout-demo-info ">
                                   
-                                    <div class="d-flex">
-                                      <button class="btn btn-primary" type="button" onclick="history.back()">Go Back</button>
+                                    <div class="div-btnBack">
+                                      <button class="btn btn-primary " type="button" onclick="history.back()">Go Back</button>
                                     </div>
                                 
                   </div>
@@ -629,9 +635,7 @@ let d =document.querySelector('#timeZones')
               </div>
               <!--/ Layout Demo -->
             </div>
-            <!-- / Content -->
 
-            <!-- Footer -->
             <%- include('footer.ejs')-%>
             <!-- / Footer -->
 

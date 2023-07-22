@@ -32,10 +32,18 @@
   .imgmp{
     border-radius: 10px;
   }
- 
+  .card2{
+    margin-left: 25px;
+    transform: translateY(-20px);
+  }
+  .card3{
+    margin-left: 25px;
+    width: 400px;
+    transform: translateY(-20px);
+  }
 
   .bod{
-    background: rgba(0, 0, 0, 0.4) url(/assets/img/elements/istockphoto-184125452-1024x1024.jpg);
+    background: rgba(0, 0, 0, 0.7) url(/assets/img/elements/istockphoto-184125452-1024x1024.jpg);
            background-repeat: no-repeat;
            background-position: center;
            background-size: cover; 
@@ -106,7 +114,7 @@
    .row-bloc1 .imageMp{
     width: 500px;
     height: 150px;
-   margin-left: 250px;
+    margin-left: 250px;
    }
    .row-bloc1 .btn{
        transform: translateY(-15px);
@@ -114,8 +122,60 @@
   .col-12 .card1 .imageMp{
      width: 50px;
    }
-   
+   .imgmp2{
+    width: 200px;
+   }
+   .card1{
+    width: 240px;
+    transform: translateY(30px)
+   }
+   .card2{
+    width: 350px;
+    transform: translateY(-20px);
+     
+   }
+   .card3{
+    width: 350px;
+     margin-left: 120px;
+     transform: translateY(-20px);
+   }
 
+}
+@media(max-width:768px){
+  .row-bloc1{
+    width: 765px;
+        
+   }
+   .row-bloc1 .imageMp{
+    width: 450px;
+  
+   }
+   .imgmp2{
+    width: 180px;
+   }
+   .card1{
+    width: 225px;
+    
+   }
+   .card2{
+    width: 350px;
+    transform: translateY(10px);
+    
+     
+   }
+   .card3{
+    width: 350px;
+     margin-left: 120px;
+     transform: translateY(10px);
+   }
+}
+@media(max-width:412px){
+  .first-cart{
+    height: 200px;
+  }
+  .imageMp0{
+    transform: translateY(-10px);
+  }
 }
 </style>
 <html
@@ -210,6 +270,7 @@
                       <div class="col-sm-5 text-center text-sm-left">
                         <div class="card-body pb-0 px-0 px-md-4">
                           <img
+                          class="imgmp0"
                             src="/assets/img/elements/istockphoto-1387859394-1024x1024-removebg-preview.png"
                             height="150" width="200"
                             alt="View Badge User"
@@ -267,7 +328,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="image-moyen-paiement1">
-                             <img class="imgmp" src="/assets/img/elements/conteneur-cargo-navire-fret-expedition-dechargement-au-port-destination-origine-grue-quai-business-commercial-global-outre-mer-logistique-.webp" alt="" width="280" height="200">
+                             <img class="imgmp imgmp2" src="/assets/img/elements/conteneur-cargo-navire-fret-expedition-dechargement-au-port-destination-origine-grue-quai-business-commercial-global-outre-mer-logistique-.webp" alt="" width="280" height="200">
                              
                             </div>
                           </div>
@@ -279,13 +340,13 @@
                     </div>
 
                     <div class="col-6 mb-4">
-                      <div class="card card2">
+                      <div class="card card1">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                    
                         
                               <div class="image-moyen-paiement1">
-                                <img class="imgmp" src="/assets/img/elements/avion-jaune-passager-3d-decolle-concept-fret-voyage-transport_715074-1238.webp" alt="" width="280" height="200">
+                                <img class="imgmp imgmp2" src="/assets/img/elements/avion-jaune-passager-3d-decolle-concept-fret-voyage-transport_715074-1238.webp" alt="" width="280" height="200">
                                 
                                </div>                             
                           
@@ -298,13 +359,13 @@
                     </div>
                     <!-- bloc-Mp3 -->
                     <div class="col-6 mb-4">
-                      <div class="card card3">
+                      <div class="card card1">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             
                             
                               <div class="image-moyen-paiement1">
-                                <img class="imgmp" src="/assets/img/elements/representation-chaine-approvisionnement-nature-morte_23-2150172489.webp" alt="" width="280" height="200">
+                                <img class="imgmp imgmp2" src="/assets/img/elements/representation-chaine-approvisionnement-nature-morte_23-2150172489.webp" alt="" width="280" height="200">
                                 
                                </div>    
                           </div>
@@ -324,7 +385,7 @@
               <div class="col-12 col-md-8 order-3 ">
                 <div class="d-flex justify-content-between">
                   <div class="col-6 mb-4">
-                    <div class="card">
+                    <div class="card card2">
                       <div class="card-body">
                         <div class="card-title d-flex align-items-start justify-content-between">
                           <div class="image-moyen-paiement1">
@@ -351,7 +412,7 @@
                   </div>
   
                   <div class="col-6 mb-4">
-                    <div class="card">
+                    <div class="card card3">
                       <div class="card-body">
 
                         <div class="card-title d-flex align-items-start justify-content-between">

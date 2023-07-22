@@ -132,6 +132,16 @@
   transform: translateX(100%);
 
  }
+form{
+  border: 2px solid ;
+  /* background-color: red; */
+  width: 100%;
+  border-top: none;
+}
+legend{
+  
+}
+
 </style>
 
 <html
@@ -271,357 +281,362 @@
                     </section>
                     </div>
               
-                  <hr class="my-0" />
-    
-                  <form id="formAccountSettings" style="padding-left:10px;" action="/logis/users/dashboard/demande-expedition" class="d-flex fontDes" method="POST">
+                  <!-- <hr class="my-0" />
+     -->
                  
-
-                    <div class="infodDes d-flex">  
-                      <div class="bloc1">
-                        <div class="mb-3 col-md-6">
-                          <label for="firstName" class="form-label">Prenom</label>
-                          <input
-                            class="form-control"
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="Prenom du destinataire"
-                            value="<%= prenomInfo?.info?.prenom  %>"
-                            autofocus
-                          />
-                          <% if(prenomInfo?.behindPrenom){ %>
-                             <div class="red">
-                                 <%= prenomInfo?.behindPrenom %> 
-                             </div>
-                          <% } %>
-                        </div>
-  
-  
-                        <div class="mb-3 col-md-6">
-                          <label for="lastName" class="form-label">Nom</label>
-                          <input class="form-control" 
-                          type="text" name="lastName" 
-                          placeholder="nom du destinataire"
-                          id="lastName" 
-                         
-                                value="<%= prenomInfo?.info?.nom  %> "
-                          />
-                          <% if(prenomInfo?.behindNom){ %>
-                            <div class="red">
-                               <%= prenomInfo?.behindNom %>
-                            </div>
-                          <% } %>
-                        </div>
-
-  
-                        <div class="mb-3 col-md-6">
-                          <label for="email" class="form-label">E-mail</label>
-                          <input
-                            class="form-control"
-                            type="text"
-                            id="email"
-                            name="email"
-                            value="<%= prenomInfo?.info?.email %>"
-                            placeholder="email@example.com"
-                          />
-                          <% if(prenomInfo?.behindEmail){ %>
-                              <div class="red">
-                                  <%= prenomInfo?.behindEmail %>
-                              </div>
-                          <% } %>
-                        </div>                    
-                      </div>  
-
-                      <div class="bloc2">
-                        <div class="mb-3 col-md-6">
-                          <label for="timeZones" class="form-label">Pays</label>
-                          <select id="timeZones" class="select2 form-select" name="Pays">
-                            <option value="<%= prenomInfo?.info?.pays.trim() %>"><%= prenomInfo?.info?.pays.trim() %></option>
-                             <% for(let pays of infoPays){ %>
-                              <option value="<%= pays.pays.trim()%>"><%= pays.pays.trim()%></option>
-                            <%} %>
-                          </select>
-                          
-     
-                          <% if(prenomInfo?.behindPays){ %>
-                            <div class="red">
-                               <%= prenomInfo?.behindPays %>
-                            </div>
-                          <% } %>
-                        
-                        </div>
-    
-    
-                        <div class="mb-3 col-md-6s">
-                          <label class="form-label" for="phoneNumber">Phone Number</label>
-                          <div class="input-group input-group-merge content-div">
-                            <span class="input-group-text spans">
-                              <select id="ville width" class="ville" name="indicePays">
-                                  <% if(prenomInfo?.info?.indice){ %>
-                                      <option value="<%= prenomInfo?.info?.indice %>"><%= prenomInfo?.info?.indice  %></option>
-                                  <% } %>
-                             </select><br><br>
-                            </span>
-                            
-                            <input 
-                              type="text"
-                              id="phoneNumber"
-                              name="phoneNumber"
-                              class="form-control"
-                              placeholder="000 00 00 00"
-                              
-                              value="<%= prenomInfo?.info?.phoneNumber %>"
-                              
-                             
-                            />
-                          </div>
-                          <% if(prenomInfo?.behindPhoneNumber){ %>
-                            <div class="red">
-                                <%= prenomInfo?.behindPhoneNumber %>
-                            </div>
-                          <% } %>
-                        </div>
-  
-                        <div class="mb-3 col-md-6 container-org" >
-                          <label for="organization" class="form-label">Ville</label>
-                          <select
-                            
-                            class="form-control"
-                            id="organization"
-                            class="organization"
-                            name="ville"
-                           placeholder="Entrer votre ville"
-                           
-                          >
-                          
-                          <% if(prenomInfo?.info?.ville){ %>
-                            <option value="<%= prenomInfo?.info?.ville %>"><%= prenomInfo?.info?.ville %></option>
-                              <% for(let pays of prenomInfo?.info?.tousLesPays){ %>
-                                      <% if(pays.pays==prenomInfo?.info?.pays){ %>
-                                            <% for(let i of pays.villes){ %>
-                                              <option value="<%= i %>"><%= i %></option>
-                                            <% } %>
-                                      <%} %>
-                              <% } %>
-                          <% } %>
-                          </select>
-              
-                        </div>
-                        <% if(prenomInfo?.behindVille){ %>
-                          <div class="red">
-                              <%= prenomInfo?.behindVille%>
-                          </div>
-                        <% } %>
-                      </div>
-                     
-
-                
-                            
-                        
-                    <script type="module" defer>
-                    //-------gestion des pays , villes et indices ------------
-                      const tableauIndice =[
-    {indice:'+267',
-    pays:'Botswana',
-     villes:['Bobonong','Letlhakane','Tonota','Jwaneng','Tutume','Gabane','Mmadinare','Ghanzi','Kasane',
-              'Orapa','Tsabong','Shoshong','Gumare','Kopong','Letlhakeng','Lerala','Molapowabojang',
-               'Otse','Shakawe','Metsimotlhaba' ]
-    
-    },
-    {indice:'+213',
-    pays:'Algerie',
-     villes:['Oran','Constantine','Annaba','Blida','Batna','Djelfa','Sétif','Sidi bel Abbès','Biskra',
-             'Tébessa','El Oued','Skikda','Tiaret','Béjaïa','Tlemcen','Ouargla','Béchar',
-             'Mostaganem','Bordj Bou Arreridj','Chlef','Souk Ahras','Médéa','El Eulma','Touggourt',
-             'Ghardaïa','Saïda','Laghouat','MSila','Jijel','Relizane','Guelma','Aïn Beïda','Khenchela',
-             'Bousaada','Mascara','Tizi Ouzou']
-    },
-    {indice:'+244',
-    pays:'Angola',
-      villes:['Luanda','Huambo','Lobito','Benguela','Lucapa','Kuito','Lubango','Malanje',
-              'Namibe','Soyo','Cabinda','Uíge','Tomboa','Saurimo','Sumbe','Caluquembe',
-               'Gabela','Caxito','Longonjo','Mbanza-Kongo','N\'Dalantando','Caála','Luena',
-               'Camacupa','Menongue','Catabola','Luau','N\'zeto','Catumbela','Camabatela','Waku-Kungo',
-               'Caconda','Ondjiva','Cangamba']
-    },
-    {indice:'+257',
-    pays:'Burundi',
-     villes:[
-        'Bujumbura','Gitega','Ngozi','Rumonge','Kayanza','Muyinga','Makamba','Cibitoke',
-        'Rutana','Ruyigi','Bururi','Bubanza','Karuzi','Cankuzo','Kirundo','Muramvya',
-        'Mwaro','Nyanza Lac','Gihofi','Gatumba']
-    },
-    {indice:'+237',
-    pays:'Cameroun',
-    regex:'/(\+237|237)\s(6|2)(2|3|[5-9])[0-9]{7}/',
-     villes:['Yaoundé', 'Garoua','Bamenda','Maroua','Bafoussam','Ngaoundéré','Bertoua','Edéa','Nkongsamba','Loum','Kumba', 'Kumbo','Foumban','Mbouda'
-             ,'Dschang','Limbé','Ebolowa','Kousséri','Guider','Meiganga','Yagoua','Mbalmayo','Bafang','Tiko'
-             ,'Bafia','Wum','Kribi', 'Buea','Sangmélima','Foumbot','Bangangté','Batouri','Banyo','Nkambé','Bali','Mbanga','Mokolo'
-             ,'Melong','Manjo','Garoua-Boulaï','Mora','Kaélé','Tibati','Ndop','Akonolinga','Eséka','Mamfé', 'Obala','Muyuka','Nanga-Eboko', 'Abong-Mbang','Fundong'
-             ,'Nkoteng','Fontem','Mbandjock','Touboro','Ngaoundal','Yokadouma','Pitoa,Tombel','Kékem','Magba','Bélabo','Tonga','Maga'
-             ,'Koutaba','Blangoua','Guidiguis','Bogo','Batibo','Yabassi','Figuil','Makénéné','Gazawa','Tcholliré'
-        ]
-},
-    {indice:'+27',
-    pays:'Afrique Du Sud',
-     villes:[
-        'Le Cap','Durban','Johannesburg','Soweto','Pretoria','Port Elizabeth','Pietermaritzburg',
-	     'Benoni','Tembisa','Vereeniging','Bloemfontein','Boksburg','Welkom','Newcastle','East London',
-	     'Krugersdorp','Brakpan','Botshabelo','Richards Bay','Witbank','Centurion','Vanderbijlpark',
-	     'Uitenhage','Alberton','Somerset West','Paarl','George','Klerksdorp','Carletonville','Springs',
-	     'Midrand','Vryheid','Embalenhle','Middelburg','Orkney','Westonaria','Epumalanga','Nigel',
-	     'Randfontein','Brits','Virginia','Worcester','Bisho','Kimberley','Polokwane','Potchefstroom',	
-	     'Emnambithi','Rustenburg','Bethal','Queenstown','Nelspruit','Phalaborwa','Delmas','Kroonstad',
-	     'Kutlwanong','Stilfontein','Warmbath','Potgietersrus','Piet Retief','Stellenbosch',
-	     'Dundee','Mabopane']
-    },
-    {indice:'+238',
-    pays:'Cap-Vert',
-     villes:[
-'Praia','Mindelo','Santa Maria','Assomada','Porto Novo','Pedra Badejo','São Filipe','Tarrafal',
-'Espargos','Calheta de São Miguel','Vila do Maio','Ribeira Brava','Picos' ]
-    },
-    {indice:'+269',
-    pays:'Comores',
-     villes:['Moroni','Mutsamudu','Domoni','Fomboni','Tsembéhou','Mvouni/Mavingouni/Mkazi',
-             'Sima','Ouani','Mirontsi','Adda Daouéni','Bazmini','Koni Djodjo','Moya','Iconi',
-             'Ounkazi','Dindri','gandzalé','Mbéni','Batsa','Barakani','Mbambao Mtsanga','Chandra',
-             'Ouellah Hamahamet','Mramani','Mrémani','Koki','Jimlimi','Mitsamiouli','Itsandzeni/Gnadomboeni',
-             'Foumbouni','Nkourani Sima','Magnassini','Mitsoudjé-Troumbeni','Singani']
-   },
-    {indice:'+225',
-    pays:'Cote d\'Ivoire',
-     villes:['Abidjan','Bouaké','Korhogo','Daloa','San-Pédro','Anyama','Yamoussoukro',
-             'Divo','Gagnoa','Soubré','Man','Duékoué',	'Bingerville','Guiglo','Lakota','Abengourou',
-             'Ferké','Adzopé','Méagui','Bondoukou','Dabou','Sinfra','Agboville','Vavoua','Danané','Grand-Béreby','Oumé',
-             'Issia','Grand-Bassam','Bloléquin','Okrouyo','Bonoua',	'Bonon','Gabiadji','Grand-Zattry','Zouan-Hounien',
-             'Seitifla','Dania','Séguéla',	'Daoukro','Aboisso','Buyo','Saïoua']
-    },
-    {indice:'+20',
-    pays:'Egypte',
-    villes:['Le Caire',	'Alexandrie','Gizeh','Shubra El-Kheima','Port-Saïd','Suez','Louxor',
-            'Mansourah', 'El-Mahalla el-Koubra','Tanta','Assiout','Ismaïlia','Médinet el-Fayoum','Zagazig',	
-            'Assouan','Damiette','Damanhur','Al-Minya','Beni Suef','Qena','Sohag','Hurghada','Madinat Sitta Uktubar',
-            'Schibin al-Kawm','Benha','Kafr el-Cheik','El-Arich','Mallawi','Al-Aschir min Ramadan','Bilbéis','Mersa Matrouh',
-            'Edfou','Mit Ghamr','Al-Hawamidiyya','Dessouk','Kalyoub','Abu Kabir',
-            'Kafr ad-Dawwar','Dschirdscha','Akhmîm','Matarée']
-   },
-    {indice:'+241',
-    pays:'Gabon',
-     villes:[
-        'Libreville','Port-Gentil','Franceville','Oyem','Moanda','Mouila','Lambaréné','Tchibanga','Koulamoutou',
-         'Makokou','Bitam','Tsogni','Gamba','Mounana','Ntoum','Nkan','Lastourville','Okondja','Ndendé',	
-         'Booué','Fougamou','Ndjolé','Mbigou','Mayumba','Mitzic','Mékambo','Lékoni','Mimongo','Minvoul',
-        'Medouneu','Omboué','Cocobeach','Kango']
-   },
-    {indice:'+291',
-    pays:'Erythrée',
-    villes:[
-        'Asmara','Assab','Keren','Massaoua','Édd','Mendefera','Barentu','Adi Keyh','Ghinda',
-        'Mersa Fatma','Beylul','Dek\'emhare','Nakfa','Agordat','Himbirti','Nefasit','Adi Quala',
-        'Senafe','Segeneiti','Teseney'
-    ]
-    },
-    {indice:'+233',
-    pays:'Ghana',
-     villes:[
-        'Accra','Kumasi','Tamale','Sekondi-Takoradi','Ashaiman','Sunyani','Cape Coast','Obuasi',
-        'Teshie','Tema','Madina','Koforidua','Wa','Techiman','Ho','Nungua',	'Lashibi',	'Dome',	'Tema New Town',
-         'Gbawe','Oduponkpehe',	'Ejura','Taifa','Bawku','Aflao','Agona Swedru','Bolgatanga',
-        'Tafo','Berekum','Nkawkaw','Akim Oda','Winneba','Hohoe','Yendi','Suhum','Kintampo','Adenta East','Nsawam','Mampong','Konongo',	
-        'Asamankese','Wenchi','Savelugu','Agogo','Anloga','Prestea','Effiakuma','Tarkwa','Elmina','Dunkwa-on-Offin',
-        'Begoro','Kpandu','Kintampo','Navrongo','Axim','Apam','Salaga','Saltpond','Akwatia',
-        'Shama','Keta','Nyakrom','Bibiani','Somanya','Foso','Aburi','Mumford','Bechem','Duayaw Nkwanta','Kade','Anomabu','Akropong',
-        'Kete-Krachi','Kibi','Kpandae','Mpraeso','Akim Swedru','Aboso','Bekwai',	
-        'Japekrom','Banda Ahenkro'
-     ]
-   },
-    {indice:'+224',
-    pays:'Guinée',
-      villes:[
-        'Beyla','Boffa','Boké','Conakry','Coyah','Dabola','Dalaba','Dinguiraye','Dubreka','Faranah','Forecariah',
-        'Fria','Gaoual','Gueckedou','Kamsar','Kankan','Kérouane','Kindia','Kissidougou',
-        'Koubia','Koundara','Kouroussa','Labé','Lélouma','Lola','Macenta','Mali','Mamou','Mandiana',
-         'N\'Zérékoré','Ourouss','Siguiri','Télimélé','Tougué','Yomou','Youkounkoun' ]
-     }
-
-]
-                      
-let d =document.querySelector('#timeZones')
-     
-                        d.addEventListener('change',(e)=>{
-                          
-                          
-                            
-                             if(d.value.trim() !=null && d.value.trim() !=''){
-                                            
-                                            
-                                            const  select =document.querySelector('#organization')
-                                             window.dynamic=select.children;
-
-
-                                            console.log(dynamic);
-                                            for(let paysObject of tableauIndice){
-                                               if(paysObject.pays.trim().toLocaleLowerCase()==d.value.trim().toLocaleLowerCase()){
-                                                document.querySelector('#organization').innerHTML=`<option value=null>choisir une ville</option>`;
-                                                                 
-                                                for(let ville of  paysObject.villes ){
-                                                   let  option =document.createElement('option');
-                                                        option.textContent=ville;
-                                                        option.value=ville;
-
-                                                        document.querySelector('#organization').append(option);
-                                                       
-                                                       console.log(Object.getPrototypeOf(dynamic))
-                                                }
-
-                                                //----------- gestion de l'indice du pays choisi-------------------
-
-                             
-                                                document.querySelector('.ville').innerHTML=`<option value=${paysObject.indice}>${paysObject.indice}</option>`;
-
-                                                //-------------------- fin de la gestion des indices de pays----------------
-                                               }
-                                      }
-
-                             }
-                             
-                        })
-
-
-                    
-                   //------------gestion du type d'information a entrer dans le 
-                   //-----------champs du numero
-
-
-                   let phoneNumber=document.querySelector('#phoneNumber');
-                   let tabNumber =[0,1,2,3,4,5,6,7,8,9];
-
-                   phoneNumber.addEventListener('keypress',(e)=>{
-                        
-                          let k = parseInt(e.key);
-                          ;
-
-                          if(!tabNumber.includes(k)){
-                             e.preventDefault();
-                          }
-                         
-                          
-                          
-                   })
-
-
-
-                   </script>
-                         
+                 
                   
-
- 
+                    <form id="formAccountSettings" style="padding-left:10px;" action="/logis/users/dashboard/demande-expedition" class="d-flex fontDes" method="POST">    
+                      <fieldset>
+                        <legend>Titre du groupe</legend>
+                        <div class="infodDes d-flex">  
+                        <div class="bloc1">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">Prenom</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="firstName"
+                              name="firstName"
+                              placeholder="Prenom du destinataire"
+                              value="<%= prenomInfo?.info?.prenom  %>"
+                              autofocus
+                            />
+                            <% if(prenomInfo?.behindPrenom){ %>
+                               <div class="red">
+                                   <%= prenomInfo?.behindPrenom %> 
+                               </div>
+                            <% } %>
+                          </div>
+    
+    
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">Nom</label>
+                            <input class="form-control" 
+                            type="text" name="lastName" 
+                            placeholder="nom du destinataire"
+                            id="lastName" 
+                           
+                                  value="<%= prenomInfo?.info?.nom  %> "
+                            />
+                            <% if(prenomInfo?.behindNom){ %>
+                              <div class="red">
+                                 <%= prenomInfo?.behindNom %>
+                              </div>
+                            <% } %>
+                          </div>
   
-                    </div>
-                   
-                 <input class="btn btn-primary" type="submit" onclick="window.location.href='infos-colis-expedition.ejs'" value="Suivant ">
+    
+                          <div class="mb-3 col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="email"
+                              name="email"
+                              value="<%= prenomInfo?.info?.email %>"
+                              placeholder="email@example.com"
+                            />
+                            <% if(prenomInfo?.behindEmail){ %>
+                                <div class="red">
+                                    <%= prenomInfo?.behindEmail %>
+                                </div>
+                            <% } %>
+                          </div>                    
+                        </div>  
+  
+                        <div class="bloc2">
+                          <div class="mb-3 col-md-6">
+                            <label for="timeZones" class="form-label">Pays</label>
+                            <select id="timeZones" class="select2 form-select" name="Pays">
+                              <option value="<%= prenomInfo?.info?.pays.trim() %>"><%= prenomInfo?.info?.pays.trim() %></option>
+                               <% for(let pays of infoPays){ %>
+                                <option value="<%= pays.pays.trim()%>"><%= pays.pays.trim()%></option>
+                              <%} %>
+                            </select>
+                            
+       
+                            <% if(prenomInfo?.behindPays){ %>
+                              <div class="red">
+                                 <%= prenomInfo?.behindPays %>
+                              </div>
+                            <% } %>
+                          
+                          </div>
+      
+      
+                          <div class="mb-3 col-md-6s">
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <div class="input-group input-group-merge content-div">
+                              <span class="input-group-text spans">
+                                <select id="ville width" class="ville" name="indicePays">
+                                    <% if(prenomInfo?.info?.indice){ %>
+                                        <option value="<%= prenomInfo?.info?.indice %>"><%= prenomInfo?.info?.indice  %></option>
+                                    <% } %>
+                               </select><br><br>
+                              </span>
+                              
+                              <input 
+                                type="text"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                class="form-control"
+                                placeholder="000 00 00 00"
+                                
+                                value="<%= prenomInfo?.info?.phoneNumber %>"
+                                
+                               
+                              />
+                            </div>
+                            <% if(prenomInfo?.behindPhoneNumber){ %>
+                              <div class="red">
+                                  <%= prenomInfo?.behindPhoneNumber %>
+                              </div>
+                            <% } %>
+                          </div>
+    
+                          <div class="mb-3 col-md-6 container-org" >
+                            <label for="organization" class="form-label">Ville</label>
+                            <select
+                              
+                              class="form-control"
+                              id="organization"
+                              class="organization"
+                              name="ville"
+                             placeholder="Entrer votre ville"
+                             
+                            >
+                            
+                            <% if(prenomInfo?.info?.ville){ %>
+                              <option value="<%= prenomInfo?.info?.ville %>"><%= prenomInfo?.info?.ville %></option>
+                                <% for(let pays of prenomInfo?.info?.tousLesPays){ %>
+                                        <% if(pays.pays==prenomInfo?.info?.pays){ %>
+                                              <% for(let i of pays.villes){ %>
+                                                <option value="<%= i %>"><%= i %></option>
+                                              <% } %>
+                                        <%} %>
+                                <% } %>
+                            <% } %>
+                            </select>
+                
+                          </div>
+                          <% if(prenomInfo?.behindVille){ %>
+                            <div class="red">
+                                <%= prenomInfo?.behindVille%>
+                            </div>
+                          <% } %>
+                        </div>
+                       
+  
+                  
+                              
+                          
+                      <script type="module" defer>
+                      //-------gestion des pays , villes et indices ------------
+                        const tableauIndice =[
+      {indice:'+267',
+      pays:'Botswana',
+       villes:['Bobonong','Letlhakane','Tonota','Jwaneng','Tutume','Gabane','Mmadinare','Ghanzi','Kasane',
+                'Orapa','Tsabong','Shoshong','Gumare','Kopong','Letlhakeng','Lerala','Molapowabojang',
+                 'Otse','Shakawe','Metsimotlhaba' ]
+      
+      },
+      {indice:'+213',
+      pays:'Algerie',
+       villes:['Oran','Constantine','Annaba','Blida','Batna','Djelfa','Sétif','Sidi bel Abbès','Biskra',
+               'Tébessa','El Oued','Skikda','Tiaret','Béjaïa','Tlemcen','Ouargla','Béchar',
+               'Mostaganem','Bordj Bou Arreridj','Chlef','Souk Ahras','Médéa','El Eulma','Touggourt',
+               'Ghardaïa','Saïda','Laghouat','MSila','Jijel','Relizane','Guelma','Aïn Beïda','Khenchela',
+               'Bousaada','Mascara','Tizi Ouzou']
+      },
+      {indice:'+244',
+      pays:'Angola',
+        villes:['Luanda','Huambo','Lobito','Benguela','Lucapa','Kuito','Lubango','Malanje',
+                'Namibe','Soyo','Cabinda','Uíge','Tomboa','Saurimo','Sumbe','Caluquembe',
+                 'Gabela','Caxito','Longonjo','Mbanza-Kongo','N\'Dalantando','Caála','Luena',
+                 'Camacupa','Menongue','Catabola','Luau','N\'zeto','Catumbela','Camabatela','Waku-Kungo',
+                 'Caconda','Ondjiva','Cangamba']
+      },
+      {indice:'+257',
+      pays:'Burundi',
+       villes:[
+          'Bujumbura','Gitega','Ngozi','Rumonge','Kayanza','Muyinga','Makamba','Cibitoke',
+          'Rutana','Ruyigi','Bururi','Bubanza','Karuzi','Cankuzo','Kirundo','Muramvya',
+          'Mwaro','Nyanza Lac','Gihofi','Gatumba']
+      },
+      {indice:'+237',
+      pays:'Cameroun',
+      regex:'/(\+237|237)\s(6|2)(2|3|[5-9])[0-9]{7}/',
+       villes:['Yaoundé', 'Garoua','Bamenda','Maroua','Bafoussam','Ngaoundéré','Bertoua','Edéa','Nkongsamba','Loum','Kumba', 'Kumbo','Foumban','Mbouda'
+               ,'Dschang','Limbé','Ebolowa','Kousséri','Guider','Meiganga','Yagoua','Mbalmayo','Bafang','Tiko'
+               ,'Bafia','Wum','Kribi', 'Buea','Sangmélima','Foumbot','Bangangté','Batouri','Banyo','Nkambé','Bali','Mbanga','Mokolo'
+               ,'Melong','Manjo','Garoua-Boulaï','Mora','Kaélé','Tibati','Ndop','Akonolinga','Eséka','Mamfé', 'Obala','Muyuka','Nanga-Eboko', 'Abong-Mbang','Fundong'
+               ,'Nkoteng','Fontem','Mbandjock','Touboro','Ngaoundal','Yokadouma','Pitoa,Tombel','Kékem','Magba','Bélabo','Tonga','Maga'
+               ,'Koutaba','Blangoua','Guidiguis','Bogo','Batibo','Yabassi','Figuil','Makénéné','Gazawa','Tcholliré'
+          ]
+  },
+      {indice:'+27',
+      pays:'Afrique Du Sud',
+       villes:[
+          'Le Cap','Durban','Johannesburg','Soweto','Pretoria','Port Elizabeth','Pietermaritzburg',
+         'Benoni','Tembisa','Vereeniging','Bloemfontein','Boksburg','Welkom','Newcastle','East London',
+         'Krugersdorp','Brakpan','Botshabelo','Richards Bay','Witbank','Centurion','Vanderbijlpark',
+         'Uitenhage','Alberton','Somerset West','Paarl','George','Klerksdorp','Carletonville','Springs',
+         'Midrand','Vryheid','Embalenhle','Middelburg','Orkney','Westonaria','Epumalanga','Nigel',
+         'Randfontein','Brits','Virginia','Worcester','Bisho','Kimberley','Polokwane','Potchefstroom',	
+         'Emnambithi','Rustenburg','Bethal','Queenstown','Nelspruit','Phalaborwa','Delmas','Kroonstad',
+         'Kutlwanong','Stilfontein','Warmbath','Potgietersrus','Piet Retief','Stellenbosch',
+         'Dundee','Mabopane']
+      },
+      {indice:'+238',
+      pays:'Cap-Vert',
+       villes:[
+  'Praia','Mindelo','Santa Maria','Assomada','Porto Novo','Pedra Badejo','São Filipe','Tarrafal',
+  'Espargos','Calheta de São Miguel','Vila do Maio','Ribeira Brava','Picos' ]
+      },
+      {indice:'+269',
+      pays:'Comores',
+       villes:['Moroni','Mutsamudu','Domoni','Fomboni','Tsembéhou','Mvouni/Mavingouni/Mkazi',
+               'Sima','Ouani','Mirontsi','Adda Daouéni','Bazmini','Koni Djodjo','Moya','Iconi',
+               'Ounkazi','Dindri','gandzalé','Mbéni','Batsa','Barakani','Mbambao Mtsanga','Chandra',
+               'Ouellah Hamahamet','Mramani','Mrémani','Koki','Jimlimi','Mitsamiouli','Itsandzeni/Gnadomboeni',
+               'Foumbouni','Nkourani Sima','Magnassini','Mitsoudjé-Troumbeni','Singani']
+     },
+      {indice:'+225',
+      pays:'Cote d\'Ivoire',
+       villes:['Abidjan','Bouaké','Korhogo','Daloa','San-Pédro','Anyama','Yamoussoukro',
+               'Divo','Gagnoa','Soubré','Man','Duékoué',	'Bingerville','Guiglo','Lakota','Abengourou',
+               'Ferké','Adzopé','Méagui','Bondoukou','Dabou','Sinfra','Agboville','Vavoua','Danané','Grand-Béreby','Oumé',
+               'Issia','Grand-Bassam','Bloléquin','Okrouyo','Bonoua',	'Bonon','Gabiadji','Grand-Zattry','Zouan-Hounien',
+               'Seitifla','Dania','Séguéla',	'Daoukro','Aboisso','Buyo','Saïoua']
+      },
+      {indice:'+20',
+      pays:'Egypte',
+      villes:['Le Caire',	'Alexandrie','Gizeh','Shubra El-Kheima','Port-Saïd','Suez','Louxor',
+              'Mansourah', 'El-Mahalla el-Koubra','Tanta','Assiout','Ismaïlia','Médinet el-Fayoum','Zagazig',	
+              'Assouan','Damiette','Damanhur','Al-Minya','Beni Suef','Qena','Sohag','Hurghada','Madinat Sitta Uktubar',
+              'Schibin al-Kawm','Benha','Kafr el-Cheik','El-Arich','Mallawi','Al-Aschir min Ramadan','Bilbéis','Mersa Matrouh',
+              'Edfou','Mit Ghamr','Al-Hawamidiyya','Dessouk','Kalyoub','Abu Kabir',
+              'Kafr ad-Dawwar','Dschirdscha','Akhmîm','Matarée']
+     },
+      {indice:'+241',
+      pays:'Gabon',
+       villes:[
+          'Libreville','Port-Gentil','Franceville','Oyem','Moanda','Mouila','Lambaréné','Tchibanga','Koulamoutou',
+           'Makokou','Bitam','Tsogni','Gamba','Mounana','Ntoum','Nkan','Lastourville','Okondja','Ndendé',	
+           'Booué','Fougamou','Ndjolé','Mbigou','Mayumba','Mitzic','Mékambo','Lékoni','Mimongo','Minvoul',
+          'Medouneu','Omboué','Cocobeach','Kango']
+     },
+      {indice:'+291',
+      pays:'Erythrée',
+      villes:[
+          'Asmara','Assab','Keren','Massaoua','Édd','Mendefera','Barentu','Adi Keyh','Ghinda',
+          'Mersa Fatma','Beylul','Dek\'emhare','Nakfa','Agordat','Himbirti','Nefasit','Adi Quala',
+          'Senafe','Segeneiti','Teseney'
+      ]
+      },
+      {indice:'+233',
+      pays:'Ghana',
+       villes:[
+          'Accra','Kumasi','Tamale','Sekondi-Takoradi','Ashaiman','Sunyani','Cape Coast','Obuasi',
+          'Teshie','Tema','Madina','Koforidua','Wa','Techiman','Ho','Nungua',	'Lashibi',	'Dome',	'Tema New Town',
+           'Gbawe','Oduponkpehe',	'Ejura','Taifa','Bawku','Aflao','Agona Swedru','Bolgatanga',
+          'Tafo','Berekum','Nkawkaw','Akim Oda','Winneba','Hohoe','Yendi','Suhum','Kintampo','Adenta East','Nsawam','Mampong','Konongo',	
+          'Asamankese','Wenchi','Savelugu','Agogo','Anloga','Prestea','Effiakuma','Tarkwa','Elmina','Dunkwa-on-Offin',
+          'Begoro','Kpandu','Kintampo','Navrongo','Axim','Apam','Salaga','Saltpond','Akwatia',
+          'Shama','Keta','Nyakrom','Bibiani','Somanya','Foso','Aburi','Mumford','Bechem','Duayaw Nkwanta','Kade','Anomabu','Akropong',
+          'Kete-Krachi','Kibi','Kpandae','Mpraeso','Akim Swedru','Aboso','Bekwai',	
+          'Japekrom','Banda Ahenkro'
+       ]
+     },
+      {indice:'+224',
+      pays:'Guinée',
+        villes:[
+          'Beyla','Boffa','Boké','Conakry','Coyah','Dabola','Dalaba','Dinguiraye','Dubreka','Faranah','Forecariah',
+          'Fria','Gaoual','Gueckedou','Kamsar','Kankan','Kérouane','Kindia','Kissidougou',
+          'Koubia','Koundara','Kouroussa','Labé','Lélouma','Lola','Macenta','Mali','Mamou','Mandiana',
+           'N\'Zérékoré','Ourouss','Siguiri','Télimélé','Tougué','Yomou','Youkounkoun' ]
+       }
+  
+  ]
+                        
+  let d =document.querySelector('#timeZones')
+       
+                          d.addEventListener('change',(e)=>{
+                            
+                            
+                              
+                               if(d.value.trim() !=null && d.value.trim() !=''){
+                                              
+                                              
+                                              const  select =document.querySelector('#organization')
+                                               window.dynamic=select.children;
+  
+  
+                                              console.log(dynamic);
+                                              for(let paysObject of tableauIndice){
+                                                 if(paysObject.pays.trim().toLocaleLowerCase()==d.value.trim().toLocaleLowerCase()){
+                                                  document.querySelector('#organization').innerHTML=`<option value=null>choisir une ville</option>`;
+                                                                   
+                                                  for(let ville of  paysObject.villes ){
+                                                     let  option =document.createElement('option');
+                                                          option.textContent=ville;
+                                                          option.value=ville;
+  
+                                                          document.querySelector('#organization').append(option);
+                                                         
+                                                         console.log(Object.getPrototypeOf(dynamic))
+                                                  }
+  
+                                                  //----------- gestion de l'indice du pays choisi-------------------
+  
+                               
+                                                  document.querySelector('.ville').innerHTML=`<option value=${paysObject.indice}>${paysObject.indice}</option>`;
+  
+                                                  //-------------------- fin de la gestion des indices de pays----------------
+                                                 }
+                                        }
+  
+                               }
+                               
+                          })
+  
+  
+                      
+                     //------------gestion du type d'information a entrer dans le 
+                     //-----------champs du numero
+  
+  
+                     let phoneNumber=document.querySelector('#phoneNumber');
+                     let tabNumber =[0,1,2,3,4,5,6,7,8,9];
+  
+                     phoneNumber.addEventListener('keypress',(e)=>{
+                          
+                            let k = parseInt(e.key);
+                            ;
+  
+                            if(!tabNumber.includes(k)){
+                               e.preventDefault();
+                            }
+                           
+                            
+                            
+                     })
+  
+  
+  
+                     </script>
+                           
+                    
+  
+   
+    
+                        </div>
+                     
+                        <input class="btn btn-primary" type="submit" onclick="window.location.href='infos-colis-expedition.ejs'" value="Suivant ">
+                    </fieldset>
                   </form>
+                 
                 </div>
 
                   <div class="layout-demo-info ">
